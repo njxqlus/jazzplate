@@ -36,8 +36,7 @@
             "public_html/mu-plugins/{$name}": [
                 "type:wordpress-muplugin",
                 "wordplate/plate",
-                "ekandreas/bladerunner",
-                "wordplate/acf"
+                "ekandreas/bladerunner"
             ],
             "public_html/plugins/{$name}": [
                 "type:wordpress-plugin"
