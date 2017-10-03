@@ -1,1 +1,1 @@
-jazzplate
+[Wordplate](https://github.com/wordplate/wordplate)
