@@ -15,7 +15,8 @@
         "wordplate/autoloader": "^1.2",
         "ekandreas/bladerunner": "^1.7",
         "wordplate/plate": "^3.0",
-        "wordplate/acf": "^2.0"
+        "wordplate/acf": "^2.0",
+        "roots/soil": "^3.7"
     },
     "repositories": [
         {
@@ -36,7 +37,8 @@
             "public_html/mu-plugins/{$name}": [
                 "type:wordpress-muplugin",
                 "wordplate/plate",
-                "ekandreas/bladerunner"
+                "ekandreas/bladerunner",
+                "roots/soil"
             ],
             "public_html/plugins/{$name}": [
                 "type:wordpress-plugin"
