@@ -31,10 +31,6 @@
     },
     "extra": {
         "installer-paths": {
-            "public/mu-plugins/{$name}": [
-                "type:wordpress-muplugin",
-                "wordplate/plate"
-            ],
             "public_html/mu-plugins/{$name}": [
                 "type:wordpress-muplugin"
             ],
