@@ -1,7 +1,12 @@
 {
     "name": "wordplate/wordplate",
     "description": "A modern WordPress stack with zero fuzz",
-    "keywords": ["wordplate", "wordpress", "boilerplate", "plate"],
+    "keywords": [
+        "wordplate",
+        "wordpress",
+        "boilerplate",
+        "plate"
+    ],
     "license": "MIT",
     "require": {
         "php": "^7.0",
@@ -25,9 +30,18 @@
     },
     "extra": {
         "installer-paths": {
-            "public_html/mu-plugins/{$name}": ["type:wordpress-muplugin"],
-            "public_html/plugins/{$name}": ["type:wordpress-plugin"],
-            "public_html/themes/{$name}": ["type:wordpress-theme"]
+            "public/mu-plugins/{$name}": [
+                "type:wordpress-muplugin"
+            ],
+            "public_html/mu-plugins/{$name}": [
+                "type:wordpress-muplugin"
+            ],
+            "public_html/plugins/{$name}": [
+                "type:wordpress-plugin"
+            ],
+            "public_html/themes/{$name}": [
+                "type:wordpress-theme"
+            ]
         },
         "wordpress-install-dir": "public_html/wordpress"
     }
