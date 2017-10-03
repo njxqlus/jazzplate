@@ -13,8 +13,8 @@
         "php": "^7.0",
         "wordplate/framework": "6.0.x-dev",
         "wordplate/autoloader": "^1.2",
-        "wordplate/plate": "^3.0",
-        "ekandreas/bladerunner": "^1.7"
+        "ekandreas/bladerunner": "^1.7",
+        "wordplate/plate": "^3.0"
     },
     "repositories": [
         {
@@ -34,6 +34,7 @@
         "installer-paths": {
             "public_html/mu-plugins/{$name}": [
                 "type:wordpress-muplugin",
+                "wordplate/plate",
                 "ekandreas/bladerunner"
             ],
             "public_html/plugins/{$name}": [

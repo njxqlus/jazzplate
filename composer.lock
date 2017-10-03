@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2eb8aff14ac96fe79c4906723a8833d7",
+    "content-hash": "a0a76f38c79323af002f871d4c2cb879",
     "packages": [
         {
             "name": "brain/hierarchy",
