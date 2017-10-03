@@ -24,10 +24,10 @@
     },
     "extra": {
         "installer-paths": {
-            "public/mu-plugins/{$name}": ["type:wordpress-muplugin"],
-            "public/plugins/{$name}": ["type:wordpress-plugin"],
-            "public/themes/{$name}": ["type:wordpress-theme"]
+            "public_html/mu-plugins/{$name}": ["type:wordpress-muplugin"],
+            "public_html/plugins/{$name}": ["type:wordpress-plugin"],
+            "public_html/themes/{$name}": ["type:wordpress-theme"]
         },
-        "wordpress-install-dir": "public/wordpress"
+        "wordpress-install-dir": "public_html/wordpress"
     }
 }
