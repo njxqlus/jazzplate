@@ -12,12 +12,6 @@ load_theme_textdomain('jazzweb', __DIR__ . '/../lang');
 require_once __DIR__ . '/hooks.php';
 
 /**
- * Activate Advanced Custom Fields
- * @since 2.0.0
- */
-require_once __DIR__ . '/acf.php';
-
-/**
  * Add theme support
  * @since 3.0
  */

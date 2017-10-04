@@ -2,7 +2,12 @@
 /**
  * Activate child theme translation
  */
-load_theme_textdomain('jazzweb-child', get_stylesheet_directory() . '/lang');
+load_theme_textdomain('jazzweb-child', __DIR__ . '/lang');
+
+/**
+ * Include theme options
+ */
+require_once __DIR__ . '/functions/theme-options.php';
 
 /**
  * Register menus
