@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0b58e43450bfc60643b4c125f224358",
+    "content-hash": "e36c31aed4ca19ddb56230c5ccdd65eb",
     "packages": [
         {
             "name": "brain/hierarchy",
@@ -1821,6 +1821,16 @@
                 "wordpress"
             ],
             "time": "2017-05-03T14:04:55+00:00"
+        },
+        {
+            "name": "wp-premium/advanced-custom-fields-pro",
+            "version": "5.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-premium/advanced-custom-fields-pro.git",
+                "reference": "master"
+            },
+            "type": "wordpress-muplugin"
         }
     ],
     "packages-dev": [],

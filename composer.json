@@ -16,12 +16,26 @@
         "ekandreas/bladerunner": "^1.7",
         "wordplate/plate": "^3.0",
         "wordplate/acf": "^2.0",
-        "roots/soil": "^3.7"
+        "roots/soil": "^3.7",
+        "wp-premium/advanced-custom-fields-pro": "^5.6"
     },
     "repositories": [
         {
             "type": "composer",
             "url": "https://wpackagist.org"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "wp-premium/advanced-custom-fields-pro",
+                "version": "5.6.2",
+                "type": "wordpress-muplugin",
+                "source": {
+                    "url": "https://github.com/wp-premium/advanced-custom-fields-pro.git",
+                    "type": "git",
+                    "reference":"master"
+                }
+            }
         }
     ],
     "scripts": {
@@ -38,7 +52,8 @@
                 "type:wordpress-muplugin",
                 "wordplate/plate",
                 "ekandreas/bladerunner",
-                "roots/soil"
+                "roots/soil",
+                "wp-premium/advanced-custom-fields-pro"
             ],
             "public_html/plugins/{$name}": [
                 "type:wordpress-plugin"
