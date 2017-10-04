@@ -9,6 +9,7 @@ if (is_singular('post'))
         while (have_posts())
         {
             the_post();
+            jazzweb()->field()->logo();
             ?>
 
             <div <?php jazzweb()->post()->classANDid(); ?>>
