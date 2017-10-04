@@ -2,7 +2,7 @@
 /**
  * Activate child theme translation
  */
-load_theme_textdomain('jazzweb-child', __DIR__ . '/lang');
+load_theme_textdomain('jazzweb-child', __DIR__ . '/../lang');
 
 /**
  * Include theme options
@@ -23,3 +23,5 @@ require_once __DIR__ . '/cpt.php';
  * Include menus
  */
 require_once __DIR__ . '/menus.php';
+
+//todo use Cortex?
