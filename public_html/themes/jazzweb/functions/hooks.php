@@ -166,21 +166,4 @@ class jazzweb {
 
         return $post;
     }
-
-    /**
-     * Collection of breadcrumbs function
-     * @since 2.0.0.5
-     * @return breadcrumbs
-     */
-    public function breadcrumbs()
-    {
-        static $breadcrumbs;
-        if (is_null($breadcrumbs))
-        {
-            get_template_part('functions/hooks/breadcrumbs');
-            $breadcrumbs = new breadcrumbs();
-        }
-
-        return $breadcrumbs;
-    }
 }
