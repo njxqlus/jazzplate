@@ -1,28 +1,27 @@
 <?php
+
 class jazzweb_field {
-
-    function __construct() {
-
-    }
 
     /**
      * Return field's name with checked type (subfield, option etc)
      * @since 2.0.0
      * @param $name - Name of field
-     * @return bool|mixed|null|void
+     * @return bool|mixed|null
      */
-    public function get($name) {
-        if( get_sub_field($name) !== false ) {
+    public function get($name)
+    {
+        if (get_sub_field($name) !== false)
+        {
             return get_sub_field($name);
-        }
-        elseif( !is_null( get_field($name) ) ) {
+        } elseif (!is_null(get_field($name)))
+        {
             return get_field($name);
-        }
-        elseif( get_sub_field($name,'option') !== false ) {
-            return get_sub_field($name,'option');
-        }
-        else {
-            return get_field($name,'option');
+        } elseif (get_sub_field($name, 'option') !== false)
+        {
+            return get_sub_field($name, 'option');
+        } else
+        {
+            return get_field($name, 'option');
         }
     }
 
@@ -30,7 +29,8 @@ class jazzweb_field {
      * Echo field
      * @param $name - Name of field
      */
-    public function the($name) {
+    public function the($name)
+    {
         echo $this->get($name);
     }
 
@@ -41,23 +41,25 @@ class jazzweb_field {
      * @param string $size - Size of image. Use registered size (thumbnail, medium etc) or array(150,150)
      * @param bool $link - Use link to full image
      */
-    public function image($name = '', $size = 'thumbnail', $link = true) {
+    public function image($name = '', $size = 'thumbnail', $link = true)
+    {
         $field = $this->get($name);
-        if( $field ) {
-            if( $link == true ) {
+        if ($field)
+        {
+            if ($link == true)
+            {
                 ?>
-                <a href="<?php echo wp_get_attachment_url($field); ?>" id="<?php echo $name;?>">
+                <a href="<?php echo wp_get_attachment_url($field); ?>" id="<?php echo $name; ?>">
                     <?php
                     echo wp_get_attachment_image($field, $size);
                     ?>
                 </a>
-            <?php
-            }
-            else {
+                <?php
+            } else
+            {
                 echo wp_get_attachment_image($field, $size);
             }
         }
-
     }
 
     /**
@@ -66,24 +68,25 @@ class jazzweb_field {
      * @param string $name - Name of field
      * @param bool $paragraph - Use paragraph
      */
-    public function text($name = '', $paragraph = true) {
+    public function text($name = '', $paragraph = true)
+    {
         $field = $this->get($name);
-        if( $field ) {
-            if( $paragraph == true ) {
+        if ($field)
+        {
+            if ($paragraph == true)
+            {
                 ?>
-                <p id="<?php echo $name;?>">
+                <p id="<?php echo $name; ?>">
                     <?php
                     echo $field;
                     ?>
                 </p>
-            <?php
-            }
-            else {
+                <?php
+            } else
+            {
                 echo $field;
             }
         }
-
-
     }
 
     /**
@@ -95,31 +98,35 @@ class jazzweb_field {
      * @param bool $paragraph - Use paragraph
      * @param string $addCode - Add phone code before number
      */
-    public function phone($name = '', $link = true, $paragraph = true, $addCode = '') {
+    public function phone($name = '', $link = true, $paragraph = true, $addCode = '')
+    {
         $phone_text = $this->get($name);
-        $a_id = 'id="'. $name .'"';
+        $a_id = 'id="' . $name . '"';
         $phone = preg_replace('#[^\d]#', '', $phone_text);
-        $phone_number = implode('', array($addCode, $phone));
-        if( $paragraph == true ) {
+        $phone_number = implode('', [$addCode, $phone]);
+        if ($paragraph == true)
+        {
             $a_id = null;
             ?>
-            <p id="<?php echo $name;?>">
-        <?php
+            <p id="<?php echo $name; ?>">
+            <?php
         }
-        if( $link == true ) {
+        if ($link == true)
+        {
             ?>
-            <a href="tel:<?php echo $phone_number;?>" <?php echo $a_id;?>>
-                <?php echo $phone_text;?>
+            <a href="tel:<?php echo $phone_number; ?>" <?php echo $a_id; ?>>
+                <?php echo $phone_text; ?>
             </a>
-        <?php
-        }
-        else {
+            <?php
+        } else
+        {
             echo $phone_text;
         }
-        if( $paragraph = true ) {
+        if ($paragraph = true)
+        {
             ?>
             </p>
-        <?php
+            <?php
         }
     }
 
@@ -130,31 +137,35 @@ class jazzweb_field {
      * @param bool $link - Use link to email
      * @param bool $paragraph - Use paragraph
      */
-    public function email($name = '', $link = true, $paragraph = true) {
+    public function email($name = '', $link = true, $paragraph = true)
+    {
         $field = get_field($name, 'option');
-        $a_id = 'id="'. $name .'"';
-        if( $paragraph == true ) {
+        $a_id = 'id="' . $name . '"';
+        if ($paragraph == true)
+        {
             $a_id = null;
             ?>
-            <p id="<?php echo $name;?>">
-        <?php
+            <p id="<?php echo $name; ?>">
+            <?php
         }
-        if( $link == true ) {
+        if ($link == true)
+        {
             ?>
-            <a href="mailto:<?php echo $field; ?>" <?php echo $a_id;?>>
+            <a href="mailto:<?php echo $field; ?>" <?php echo $a_id; ?>>
                 <?php
                 echo $field;
                 ?>
             </a>
-        <?php
-        }
-        else {
+            <?php
+        } else
+        {
             echo $field;
         }
-        if( $paragraph = true ) {
+        if ($paragraph = true)
+        {
             ?>
             </p>
-        <?php
+            <?php
         }
     }
 
@@ -166,18 +177,20 @@ class jazzweb_field {
      * @param string $size - Size of image. Use registered size (thumbnail, medium etc) or array(150,150)
      * @param bool $link - Use link to homepage
      */
-    public function logo($name = 'logo', $size = 'full', $link = true) {
-        if( $link == true ) {
+    public function logo($name = 'logo', $size = 'full', $link = true)
+    {
+        if ($link == true)
+        {
             ?>
-            <a href="<?php bloginfo('url');?>" id="<?php echo $name;?>" title="<?php bloginfo('name');?>">
+            <a href="<?php bloginfo('url'); ?>" id="<?php echo $name; ?>" title="<?php bloginfo('name'); ?>">
                 <?php
-                $this->image($name,$size,false);
+                $this->image($name, $size, false);
                 ?>
             </a>
-        <?php
-        }
-        else {
-            $this->image($name,$size,false);
+            <?php
+        } else
+        {
+            $this->image($name, $size, false);
         }
     }
 
@@ -190,41 +203,47 @@ class jazzweb_field {
      * @param bool $link - Use link to full size image
      * @param bool $caption - Echo image caption
      */
-    public function gallery($name = '', $size = 'thumbnail', $link = true, $caption = false) {
+    public function gallery($name = '', $size = 'thumbnail', $link = true, $caption = false)
+    {
         $fields = $this->get($name);
-        if( $fields ) {
+        if ($fields)
+        {
             $count = 0;
             ?>
-            <ul id="<?php echo $name;?>-gallery">
-                <?php foreach( $fields as $field ) {
-                    $count++;
+            <ul id="<?php echo $name; ?>-gallery">
+                <?php foreach ($fields as $field)
+                {
+                    $count ++;
                     $caption_text = null;
-                    if($caption == true) {
+                    if ($caption == true)
+                    {
                         $caption_text = $field['caption'];
                     }
                     ?>
                     <li class="item">
                         <?php
-                        if( $link == true ) {
+                        if ($link == true)
+                        {
                             ?>
-                            <a href="<?php echo wp_get_attachment_url($field['ID']); ?>" id="<?php echo $name .'-'. $count;?>">
+                            <a href="<?php echo wp_get_attachment_url($field['ID']); ?>"
+                               id="<?php echo $name . '-' . $count; ?>">
                                 <?php
                                 echo wp_get_attachment_image($field['ID'], $size);
                                 echo $caption_text;
                                 ?>
                             </a>
-                        <?php
-                        }
-                        else {
+                            <?php
+                        } else
+                        {
                             echo wp_get_attachment_image($field['ID'], $size);
                             echo $caption_text;
                         }
                         ?>
                     </li>
-                <?php
+                    <?php
                 } ?>
             </ul>
-        <?php
+            <?php
         }
     }
 
@@ -234,9 +253,11 @@ class jazzweb_field {
      * @param string $name - Name of field
      * @param string $tag - H tag, ex: h1,h2,h3 etc
      */
-    public function title($name = '', $tag = 'h1') {
+    public function title($name = '', $tag = 'h1')
+    {
         $field = $this->get($name);
-        if($field) {
+        if ($field)
+        {
             echo '<' . $tag . '>' . $field . '</' . $tag . '>';
         }
     }
