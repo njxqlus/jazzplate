@@ -1,5 +1,27 @@
-# www.robotstxt.org/
-
-# Allow crawling of all content
+#https://wp-kama.ru/id_803/pishem-pravilnyiy-robotstxt-dlya-wordpress.html
 User-agent: *
-Disallow:
+Disallow: /cgi-bin
+Disallow: /?
+Disallow: /wordpress-
+Disallow: *?s=
+Disallow: *&s=
+Disallow: /search
+Disallow: /author/
+Disallow: *?attachment_id=
+Disallow: */trackback
+Disallow: */feed
+Disallow: */embed
+Disallow: */page/
+Allow: */uploads
+Allow: /*/*.js
+Allow: /*/*.css
+Allow: /wordpress-*.png
+Allow: /wordpress-*.jpg
+Allow: /wordpress-*.jpeg
+Allow: /wordpress-*.gif
+#Disallow: /wp/
+
+#Host: www.site.ru
+
+#Sitemap: http://site.ru/sitemap.xml
+
