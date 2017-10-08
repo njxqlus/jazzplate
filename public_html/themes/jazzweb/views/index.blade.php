@@ -1,6 +1,6 @@
 @extends('views.master')
 
-@section('main')
+@section('content')
 
     <h1>Home</h1>
 

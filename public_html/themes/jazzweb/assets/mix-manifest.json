@@ -1,0 +1,8 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/vendor/bootstrap/bootstrap.min.css": "/vendor/bootstrap/bootstrap.min.css",
+    "/vendor/bootstrap/bootstrap.min.js": "/vendor/bootstrap/bootstrap.min.js",
+    "/vendor/popper/popper.min.js": "/vendor/popper/popper.min.js",
+    "/vendor/jquery/jquery.min.js": "/vendor/jquery/jquery.min.js"
+}

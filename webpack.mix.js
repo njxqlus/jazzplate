@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+let mix = require('laravel-mix');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,12 +11,53 @@ const mix = require('laravel-mix');
  |
  */
 
-const theme = 'wordplate';
+const theme = 'jazzweb';
+const public_folder = 'public_html';
+const theme_assets = `${public_folder}/themes/${theme}/assets`;
 
-mix.setResourceRoot('../');
-mix.setPublicPath(`public_html/themes/${theme}/assets`);
+mix.setPublicPath(path.normalize(`${theme_assets}`));
 
-mix.js('resources/assets/scripts/app.js', 'scripts');
-mix.sass('resources/assets/styles/app.scss', 'styles');
+mix.js('assets/js/app.js', 'js');
+mix.less('assets/less/app.less', 'css');
 
-mix.version();
+//Copy Bootstrap
+mix.copy('node_modules/bootstrap/dist/css/bootstrap.min.css', `${theme_assets}/vendor/bootstrap/bootstrap.min.css`);
+mix.copy('node_modules/bootstrap/dist/js/bootstrap.min.js', `${theme_assets}/vendor/bootstrap/bootstrap.min.js`);
+
+//Copy Popper.js
+mix.copy('node_modules/popper.js/dist/umd/popper.min.js', `${theme_assets}/vendor/popper/popper.min.js`);
+
+//Copy jQuery
+mix.copy('node_modules/jquery/dist/jquery.min.js', `${theme_assets}/vendor/jquery/jquery.min.js`);
+
+// Full API
+// mix.js(src, output);
+// mix.react(src, output); <-- Identical to mix.js(), but registers React Babel compilation.
+// mix.extract(vendorLibs);
+// mix.sass(src, output);
+// mix.standaloneSass('src', output); <-- Faster, but isolated from Webpack.
+// mix.fastSass('src', output); <-- Alias for mix.standaloneSass().
+// mix.less(src, output);
+// mix.stylus(src, output);
+// mix.postCss(src, output, [require('postcss-some-plugin')()]);
+// mix.browserSync('my-site.dev');
+// mix.combine(files, destination);
+// mix.babel(files, destination); <-- Identical to mix.combine(), but also includes Babel compilation.
+// mix.copy(from, to);
+// mix.copyDirectory(fromDir, toDir);
+// mix.minify(file);
+// mix.sourceMaps(); // Enable sourcemaps
+// mix.version(); // Enable versioning.
+// mix.disableNotifications();
+// mix.setPublicPath('path/to/public');
+// mix.setResourceRoot('prefix/for/resource/locators');
+// mix.autoload({}); <-- Will be passed to Webpack's ProvidePlugin.
+// mix.webpackConfig({}); <-- Override webpack.config.js, without editing the file directly.
+// mix.then(function () {}) <-- Will be triggered each time Webpack finishes building.
+// mix.options({
+//   extractVueStyles: false, // Extract .vue component styling to file, rather than inline.
+//   processCssUrls: true, // Process/optimize relative stylesheet url()'s. Set to false, if you don't want them touched.
+//   purifyCss: false, // Remove unused CSS selectors.
+//   uglify: {}, // Uglify-specific options. https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
+//   postCss: [] // Post-CSS options: https://github.com/postcss/postcss/blob/master/docs/plugins.md
+// });
